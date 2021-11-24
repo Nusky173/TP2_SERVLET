@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<FORM Method="POST" Action="/api/UserInfo" id="form">
+  Name : 		<INPUT type="text" size="20" name="name"><BR>
+  Firstname : 	<INPUT type="text" size="20" name="firstname"><BR>
+  Age : 		<INPUT type="text" size="2" name="age"><BR>
+    Type:       <SELECT name="type-user" >
+                    <option value="">--Please choose an option--</option>
+                    <option value="individual">Individual</option>
+                    <option value="professional">Professional</option>
+                </SELECT><BR><BR><HR><BR>
+    <INPUT type="hidden" id="tel-individual" name="tel" placeholder="phone number"><br>
+    <INPUT type="hidden" id="agenda-url" name="agenda-url" placeholder="agenda url"><br>
+    <INPUT type="hidden" id="agenda-login" name="agenda-login" placeholder="agenda login"><br>
+    <INPUT type="hidden" id="agenda-password" name="agenda-password" placeholder="agenda password"><br>
+Login:      <Input type="text" name="login", size="25"><BR>
+Password:   <Input type="text" name="password", size="25"><BR>
+<INPUT type=submit value=Send>
+</FORM>
+<script type="text/javascript" src="myform.js"></script>
+</body>
+</html>
