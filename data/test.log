@@ -1,0 +1,725 @@
+/*C1*/SET SCHEMA SYSTEM_LOBS
+INSERT INTO BLOCKS VALUES(0,2147483647,0)
+COMMIT
+/*C3*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C4*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C3*/INSERT INTO AGENDA VALUES(1,'login','password','url')
+INSERT INTO USER VALUES('Professional',2,'ProfessionalFirstName','ProfessionalLastName','ProfessionalLLogin','ProfessionalPassword',NULL,1)
+INSERT INTO MEETING VALUES(3,'2021-12-02 08:37:52.729000','meeting1',NULL)
+INSERT INTO MEETING VALUES(4,'2021-12-02 08:37:52.729000','meeting2',NULL)
+INSERT INTO USER VALUES('Individual',5,'IndividualFirstName1','IndividualLastName1','IndividualLogin1','IndividualPassword1','1',NULL)
+INSERT INTO USER VALUES('Individual',6,'IndividualFirstName2','IndividualLastName2','IndividualLogin2','IndividualPassword2','2',NULL)
+DELETE FROM MEETING WHERE ID=3
+INSERT INTO MEETING VALUES(3,'2021-12-02 08:37:52.729000','meeting1',5)
+DELETE FROM MEETING WHERE ID=4
+INSERT INTO MEETING VALUES(4,'2021-12-02 08:37:52.729000','meeting2',6)
+INSERT INTO AGENDA_MEETING VALUES(1,3)
+INSERT INTO AGENDA_MEETING VALUES(1,4)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DISCONNECT
+/*C4*/DISCONNECT
+/*C5*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C6*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C7*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C6*/INSERT INTO AGENDA VALUES(1,'login','password','url')
+INSERT INTO USER VALUES('Professional',2,'ProfessionalFirstName','ProfessionalLastName','ProfessionalLLogin','ProfessionalPassword',NULL,1)
+INSERT INTO MEETING VALUES(3,'2021-12-02 08:39:48.991000','meeting1',NULL)
+INSERT INTO MEETING VALUES(4,'2021-12-02 08:39:48.991000','meeting2',NULL)
+INSERT INTO USER VALUES('Individual',5,'IndividualFirstName1','IndividualLastName1','IndividualLogin1','IndividualPassword1','1',NULL)
+INSERT INTO USER VALUES('Individual',6,'IndividualFirstName2','IndividualLastName2','IndividualLogin2','IndividualPassword2','2',NULL)
+DELETE FROM MEETING WHERE ID=3
+INSERT INTO MEETING VALUES(3,'2021-12-02 08:39:48.991000','meeting1',5)
+DELETE FROM MEETING WHERE ID=4
+INSERT INTO MEETING VALUES(4,'2021-12-02 08:39:48.991000','meeting2',6)
+INSERT INTO AGENDA_MEETING VALUES(1,3)
+INSERT INTO AGENDA_MEETING VALUES(1,4)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+/*C7*/DISCONNECT
+/*C6*/DISCONNECT
+/*C8*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C9*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C8*/INSERT INTO AGENDA VALUES(1,'slecordiagenda','triiiiix','http://url')
+INSERT INTO USER VALUES('Professional',2,'Simon','Lecordier','slecordier','684984',NULL,1)
+INSERT INTO MEETING VALUES(3,'2021-12-02 08:41:11.062000','meeting1',NULL)
+INSERT INTO MEETING VALUES(4,'2021-12-02 08:41:11.062000','meeting2',NULL)
+INSERT INTO USER VALUES('Individual',5,'Alexis','Leloup','IndividualLogin1','1234','0651515151',NULL)
+INSERT INTO USER VALUES('Individual',6,'Antoine','Cornilleau','IndividualLogin2','1234','0653435152',NULL)
+DELETE FROM MEETING WHERE ID=3
+INSERT INTO MEETING VALUES(3,'2021-12-02 08:41:11.062000','meeting1',5)
+DELETE FROM MEETING WHERE ID=4
+INSERT INTO MEETING VALUES(4,'2021-12-02 08:41:11.062000','meeting2',6)
+INSERT INTO AGENDA_MEETING VALUES(1,3)
+INSERT INTO AGENDA_MEETING VALUES(1,4)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DISCONNECT
+/*C9*/DISCONNECT
+/*C2*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C11*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C12*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C11*/INSERT INTO AGENDA VALUES(1,'slecordiagenda','triiiiix','http://url')
+INSERT INTO USER VALUES('Professional',2,'Simon','Lecordier','slecordier','684984',NULL,1)
+INSERT INTO MEETING VALUES(3,'2021-12-02 08:43:53.394000','meeting1',NULL)
+INSERT INTO MEETING VALUES(4,'2021-12-02 08:43:53.394000','meeting2',NULL)
+INSERT INTO USER VALUES('Individual',5,'Alexis','Leloup','IndividualLogin1','1234','0651515151',NULL)
+INSERT INTO USER VALUES('Individual',6,'Antoine','Cornilleau','IndividualLogin2','1234','0653435152',NULL)
+DELETE FROM MEETING WHERE ID=3
+INSERT INTO MEETING VALUES(3,'2021-12-02 08:43:53.394000','meeting1',5)
+DELETE FROM MEETING WHERE ID=4
+INSERT INTO MEETING VALUES(4,'2021-12-02 08:43:53.394000','meeting2',6)
+INSERT INTO AGENDA_MEETING VALUES(1,3)
+INSERT INTO AGENDA_MEETING VALUES(1,4)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DISCONNECT
+/*C12*/DISCONNECT
+/*C5*/DISCONNECT
+/*C13*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C14*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C15*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C14*/INSERT INTO AGENDA VALUES(1,'slecordiagenda','triiiiix','http://url')
+INSERT INTO USER VALUES('Professional',2,'Simon','Lecordier','slecordier','684984',NULL,1)
+INSERT INTO MEETING VALUES(3,'2021-12-02 08:44:13.633000','meeting1',NULL)
+INSERT INTO MEETING VALUES(4,'2021-12-02 08:44:13.633000','meeting2',NULL)
+INSERT INTO USER VALUES('Individual',5,'Alexis','Leloup','IndividualLogin1','1234','0651515151',NULL)
+INSERT INTO USER VALUES('Individual',6,'Antoine','Cornilleau','IndividualLogin2','1234','0653435152',NULL)
+DELETE FROM MEETING WHERE ID=3
+INSERT INTO MEETING VALUES(3,'2021-12-02 08:44:13.633000','meeting1',5)
+DELETE FROM MEETING WHERE ID=4
+INSERT INTO MEETING VALUES(4,'2021-12-02 08:44:13.633000','meeting2',6)
+INSERT INTO AGENDA_MEETING VALUES(1,3)
+INSERT INTO AGENDA_MEETING VALUES(1,4)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DISCONNECT
+/*C15*/DISCONNECT
+/*C13*/DISCONNECT
+/*C16*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C17*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C16*/INSERT INTO AGENDA VALUES(1,'slecordiagenda','triiiiix','http://url')
+INSERT INTO USER VALUES('Professional',2,'Simon','Lecordier','slecordier','684984',NULL,1)
+INSERT INTO MEETING VALUES(3,'2021-12-02 09:07:41.564000','meeting1',NULL)
+INSERT INTO MEETING VALUES(4,'2021-12-02 09:07:41.564000','meeting2',NULL)
+INSERT INTO USER VALUES('Individual',5,'Alexis','Leloup','IndividualLogin1','1234','0651515151',NULL)
+INSERT INTO USER VALUES('Individual',6,'Antoine','Cornilleau','IndividualLogin2','1234','0653435152',NULL)
+DELETE FROM MEETING WHERE ID=3
+INSERT INTO MEETING VALUES(3,'2021-12-02 09:07:41.564000','meeting1',5)
+DELETE FROM MEETING WHERE ID=4
+INSERT INTO MEETING VALUES(4,'2021-12-02 09:07:41.564000','meeting2',6)
+INSERT INTO AGENDA_MEETING VALUES(1,3)
+INSERT INTO AGENDA_MEETING VALUES(1,4)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+/*C17*/DISCONNECT
+/*C16*/DISCONNECT
+/*C18*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C19*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C18*/INSERT INTO AGENDA VALUES(1,'slecordiagenda','triiiiix','http://url')
+INSERT INTO USER VALUES('Professional',2,'Simon','Lecordier','slecordier','684984',NULL,1)
+INSERT INTO MEETING VALUES(3,'2021-12-02 09:11:05.738000','meeting1',NULL)
+INSERT INTO MEETING VALUES(4,'2021-12-02 09:11:05.738000','meeting2',NULL)
+INSERT INTO USER VALUES('Individual',5,'Alexis','Leloup','IndividualLogin1','1234','0651515151',NULL)
+INSERT INTO USER VALUES('Individual',6,'Antoine','Cornilleau','IndividualLogin2','1234','0653435152',NULL)
+DELETE FROM MEETING WHERE ID=3
+INSERT INTO MEETING VALUES(3,'2021-12-02 09:11:05.738000','meeting1',5)
+DELETE FROM MEETING WHERE ID=4
+INSERT INTO MEETING VALUES(4,'2021-12-02 09:11:05.738000','meeting2',6)
+INSERT INTO AGENDA_MEETING VALUES(1,3)
+INSERT INTO AGENDA_MEETING VALUES(1,4)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DISCONNECT
+/*C19*/DISCONNECT
+/*C20*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C21*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C22*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C21*/INSERT INTO AGENDA VALUES(1,'slecordiagenda','triiiiix','http://url')
+INSERT INTO USER VALUES('Professional',2,'Simon','Lecordier','slecordier','684984',NULL,1)
+INSERT INTO MEETING VALUES(3,'2021-12-02 09:11:23.886000','meeting1',NULL)
+INSERT INTO MEETING VALUES(4,'2021-12-02 09:11:23.886000','meeting2',NULL)
+INSERT INTO USER VALUES('Individual',5,'Alexis','Leloup','IndividualLogin1','1234','0651515151',NULL)
+INSERT INTO USER VALUES('Individual',6,'Antoine','Cornilleau','IndividualLogin2','1234','0653435152',NULL)
+DELETE FROM MEETING WHERE ID=3
+INSERT INTO MEETING VALUES(3,'2021-12-02 09:11:23.886000','meeting1',5)
+DELETE FROM MEETING WHERE ID=4
+INSERT INTO MEETING VALUES(4,'2021-12-02 09:11:23.886000','meeting2',6)
+INSERT INTO AGENDA_MEETING VALUES(1,3)
+INSERT INTO AGENDA_MEETING VALUES(1,4)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+/*C22*/DISCONNECT
+/*C21*/DISCONNECT
+/*C20*/DISCONNECT
+/*C23*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C24*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C23*/INSERT INTO AGENDA VALUES(1,'slecordiagenda','triiiiix','http://url')
+INSERT INTO USER VALUES('Professional',2,'Simon','Lecordier','slecordier','684984',NULL,1)
+INSERT INTO MEETING VALUES(3,'2021-12-02 09:19:07.660000','meeting1',NULL)
+INSERT INTO MEETING VALUES(4,'2021-12-02 09:19:07.660000','meeting2',NULL)
+INSERT INTO USER VALUES('Individual',5,'Alexis','Leloup','IndividualLogin1','1234','0651515151',NULL)
+INSERT INTO USER VALUES('Individual',6,'Antoine','Cornilleau','IndividualLogin2','1234','0653435152',NULL)
+DELETE FROM MEETING WHERE ID=3
+INSERT INTO MEETING VALUES(3,'2021-12-02 09:19:07.660000','meeting1',5)
+DELETE FROM MEETING WHERE ID=4
+INSERT INTO MEETING VALUES(4,'2021-12-02 09:19:07.660000','meeting2',6)
+INSERT INTO AGENDA_MEETING VALUES(1,3)
+INSERT INTO AGENDA_MEETING VALUES(1,4)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+/*C24*/DISCONNECT
+/*C23*/DISCONNECT
+/*C25*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C26*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C27*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C26*/INSERT INTO AGENDA VALUES(1,'slecordiagenda','triiiiix','http://url')
+INSERT INTO USER VALUES('Professional',2,'Simon','Lecordier','slecordier','684984',NULL,1)
+INSERT INTO MEETING VALUES(3,'2021-12-02 09:19:59.173000','meeting1',NULL)
+INSERT INTO MEETING VALUES(4,'2021-12-02 09:19:59.173000','meeting2',NULL)
+INSERT INTO USER VALUES('Individual',5,'Alexis','Leloup','IndividualLogin1','1234','0651515151',NULL)
+INSERT INTO USER VALUES('Individual',6,'Antoine','Cornilleau','IndividualLogin2','1234','0653435152',NULL)
+DELETE FROM MEETING WHERE ID=3
+INSERT INTO MEETING VALUES(3,'2021-12-02 09:19:59.173000','meeting1',5)
+DELETE FROM MEETING WHERE ID=4
+INSERT INTO MEETING VALUES(4,'2021-12-02 09:19:59.173000','meeting2',6)
+INSERT INTO AGENDA_MEETING VALUES(1,3)
+INSERT INTO AGENDA_MEETING VALUES(1,4)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+/*C27*/DISCONNECT
+/*C26*/DISCONNECT
+/*C25*/DISCONNECT
+/*C28*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C29*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C28*/INSERT INTO AGENDA VALUES(1,'slecordiagenda','triiiiix','http://url')
+INSERT INTO USER VALUES('Professional',2,'Simon','Lecordier','slecordier','684984',NULL,1)
+INSERT INTO MEETING VALUES(3,'2021-12-02 09:26:24.814000','meeting1',NULL)
+INSERT INTO MEETING VALUES(4,'2021-12-02 09:26:24.814000','meeting2',NULL)
+INSERT INTO USER VALUES('Individual',5,'Alexis','Leloup','IndividualLogin1','1234','0651515151',NULL)
+INSERT INTO USER VALUES('Individual',6,'Antoine','Cornilleau','IndividualLogin2','1234','0653435152',NULL)
+DELETE FROM MEETING WHERE ID=3
+INSERT INTO MEETING VALUES(3,'2021-12-02 09:26:24.814000','meeting1',5)
+DELETE FROM MEETING WHERE ID=4
+INSERT INTO MEETING VALUES(4,'2021-12-02 09:26:24.814000','meeting2',6)
+INSERT INTO AGENDA_MEETING VALUES(1,3)
+INSERT INTO AGENDA_MEETING VALUES(1,4)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+/*C29*/DISCONNECT
+/*C28*/DISCONNECT
+/*C30*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C31*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C30*/INSERT INTO AGENDA VALUES(1,'slecordiagenda','triiiiix','http://url')
+INSERT INTO USER VALUES('Professional',2,'Simon','Lecordier','slecordier','684984',NULL,1)
+INSERT INTO MEETING VALUES(3,'2021-12-02 09:35:38.691000','meeting1',NULL)
+INSERT INTO MEETING VALUES(4,'2021-12-02 09:35:38.691000','meeting2',NULL)
+INSERT INTO USER VALUES('Individual',5,'Alexis','Leloup','IndividualLogin1','1234','0651515151',NULL)
+INSERT INTO USER VALUES('Individual',6,'Antoine','Cornilleau','IndividualLogin2','1234','0653435152',NULL)
+DELETE FROM MEETING WHERE ID=3
+INSERT INTO MEETING VALUES(3,'2021-12-02 09:35:38.691000','meeting1',5)
+DELETE FROM MEETING WHERE ID=4
+INSERT INTO MEETING VALUES(4,'2021-12-02 09:35:38.691000','meeting2',6)
+INSERT INTO AGENDA_MEETING VALUES(1,3)
+INSERT INTO AGENDA_MEETING VALUES(1,4)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+/*C31*/DISCONNECT
+/*C30*/DISCONNECT
+/*C32*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+INSERT INTO USER VALUES('Individual',1,'Martin','Alexis','zerzer','zerfe','0651515151',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+/*C33*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C34*/SET SCHEMA PUBLIC
+drop table if exists Agenda CASCADE 
+drop table if exists Agenda_Meeting CASCADE 
+drop table if exists Meeting CASCADE 
+drop table if exists User CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Agenda (id bigint not null, login varchar(255), password varchar(255), url varchar(255), primary key (id))
+create table Agenda_Meeting (Agenda_id bigint not null, meetingList_id bigint not null)
+create table Meeting (id bigint not null, date timestamp, entitled varchar(255), patient_id bigint, primary key (id))
+create table User (DTYPE varchar(31) not null, id bigint not null, firstName varchar(255), lastName varchar(255), login varchar(255), password varchar(255), tel varchar(255), agenda_id bigint, primary key (id))
+alter table Agenda_Meeting add constraint UK_3w3dcmy1ntunk8t70jubiuyyy unique (meetingList_id)
+alter table Agenda_Meeting add constraint FKe27nyrxa77c7psuf8rccmbnlk foreign key (meetingList_id) references Meeting
+alter table Agenda_Meeting add constraint FKemnc7xsm8c943kpctth99myg foreign key (Agenda_id) references Agenda
+alter table Meeting add constraint FKbnm5aj0d5a7umuj69x7t9fak1 foreign key (patient_id) references User
+alter table User add constraint FK733nb8oqji801vcuc6f4prpd6 foreign key (agenda_id) references Agenda
+/*C33*/INSERT INTO AGENDA VALUES(1,'slecordiagenda','triiiiix','http://url')
+INSERT INTO USER VALUES('Professional',2,'Simon','Lecordier','slecordier','684984',NULL,1)
+INSERT INTO MEETING VALUES(3,'2021-12-02 09:42:54.250000','meeting1',NULL)
+INSERT INTO MEETING VALUES(4,'2021-12-02 09:42:54.250000','meeting2',NULL)
+INSERT INTO USER VALUES('Individual',5,'Alexis','Leloup','IndividualLogin1','1234','0651515151',NULL)
+INSERT INTO USER VALUES('Individual',6,'Antoine','Cornilleau','IndividualLogin2','1234','0653435152',NULL)
+DELETE FROM MEETING WHERE ID=3
+INSERT INTO MEETING VALUES(3,'2021-12-02 09:42:54.250000','meeting1',5)
+DELETE FROM MEETING WHERE ID=4
+INSERT INTO MEETING VALUES(4,'2021-12-02 09:42:54.250000','meeting2',6)
+INSERT INTO AGENDA_MEETING VALUES(1,3)
+INSERT INTO AGENDA_MEETING VALUES(1,4)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DISCONNECT
+/*C34*/DISCONNECT
+/*C32*/INSERT INTO AGENDA VALUES(7,'azeaze','azeaze','azeaze')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+INSERT INTO USER VALUES('Professional',8,'Martin','Alexis','azeaze','azeaze',NULL,7)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
+COMMIT
+INSERT INTO USER VALUES('Individual',9,'Dubuc','Thomas','zer','z','0651515151',NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
+COMMIT

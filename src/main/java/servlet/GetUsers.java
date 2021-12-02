@@ -2,23 +2,14 @@ package servlet;
 
 import dao.IndividualDao;
 import dao.ProfessionalDao;
-import entities.Individual;
-import entities.Professional;
-import entities.User;
-import jpa.EntityManagerHelper;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
-
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class GetUsers extends HttpServlet {
 

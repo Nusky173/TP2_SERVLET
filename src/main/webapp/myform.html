@@ -6,7 +6,7 @@
 </head>
 <body>
 <FORM Method="POST" Action="/api/UserInfo" id="form">
-  Name : 		<INPUT type="text" size="20" name="name"><BR>
+  LastName : 		<INPUT type="text" size="20" name="name"><BR>
   Firstname : 	<INPUT type="text" size="20" name="firstname"><BR>
   Age : 		<INPUT type="text" size="2" name="age"><BR>
     Type:       <SELECT name="type-user" >
@@ -14,10 +14,14 @@
                     <option value="individual">Individual</option>
                     <option value="professional">Professional</option>
                 </SELECT><BR><BR><HR><BR>
-    <INPUT type="hidden" id="tel-individual" name="tel" placeholder="phone number"><br>
-    <INPUT type="hidden" id="agenda-url" name="agenda-url" placeholder="agenda url"><br>
-    <INPUT type="hidden" id="agenda-login" name="agenda-login" placeholder="agenda login"><br>
-    <INPUT type="hidden" id="agenda-password" name="agenda-password" placeholder="agenda password"><br>
+    <div id="individual">
+        <INPUT type="hidden" id="tel-individual" name="tel" placeholder="phone number"><br>
+    </div>
+    <div id="professional">
+        <INPUT type="hidden" id="agenda-url" name="agenda-url" placeholder="agenda url"><br>
+        <INPUT type="hidden" id="agenda-login" name="agenda-login" placeholder="agenda login"><br>
+        <INPUT type="hidden" id="agenda-password" name="agenda-password" placeholder="agenda password"><br>
+    </div>
 Login:      <Input type="text" name="login", size="25"><BR>
 Password:   <Input type="text" name="password", size="25"><BR>
 <INPUT type=submit value=Send>
